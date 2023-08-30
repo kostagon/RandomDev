@@ -1,5 +1,7 @@
 import React from 'react';
 import { useAuth } from './context/AuthContext';
+import Typography from '@mui/material/Typography';
+import Homepage from './pages/Homepage';
 
 const App: React.FC = () => {
   const { user, login, logout } = useAuth();
@@ -8,9 +10,11 @@ const App: React.FC = () => {
     <div>
       {user ? (
         <div>
-          <p>Welcome, {user.name}!</p>
+          <Typography variant="h5" component="h1" color="secondary">
+            Welcome, {user.name}!
+          </Typography>
           <button onClick={logout}>Logout</button>
-          <p>Homepage...</p>
+          <Homepage />
         </div>
       ) : (
         <div>
